@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Mi Primer Template</title>
+</head>
+<body>
+    <h1>Hola desde Django Template 🎉</h1>
+    <p> fecha: {{ fecha }}</p>
+    <h2>Datos Personales</h2>
+    <p>Nombre: {{ datosUsuario.nombre }}</p>
+    <p>Apellido: {{ datosUsuario.apellido }}</p>
+    <p>Edad: {{ datosUsuario.edad }}</p>
+    <h2>Hobbies: Tiene {{ datosUsuario.hobbies|length}} hobbies</h2>
+    {% if datosUsuario.hobbies %}
+        <ul>
+            {% for hobbie in datosUsuario.hobbies %}
+                <li>
+                    {{ hobbie }}
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>{{ datosUsuario.nombre}} no tiene hobbies</p>
+    {% endif %}
+
+
+{% comment "" %}
+    <ul>
+        <li>{{ datosUsuario.hobbies.0 }}</li>
+        <li>{{ datosUsuario.hobbies.1 }}</li>
+        <li>{{ datosUsuario.hobbies.2 }}</li>
+    <ul>
+    {% endcomment %}
+</body>
+</html>
